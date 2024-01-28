@@ -1,0 +1,37 @@
+import random
+
+#Python application for a simple math game
+
+#define operators and operands for randomly generated questions
+OPERATORS = ["+", "-","*"]
+MIN_OPERAND = 2
+MAX_OPERAND = 15
+TOTAL_PROBLEMS = 10
+
+#generate a random math problem using random ints and random
+def generate_problem():
+    left = random.randint(MIN_OPERAND, MAX_OPERAND)
+    right = random.randint(MIN_OPERAND, MAX_OPERAND)
+    operator= random.choice(OPERATORS)
+
+    expr = str(left) + " " + operator + " " + str(right)
+    answer = eval(expr)
+    return expr, answer
+
+input("Press Enter to Start")
+
+for i in range(TOTAL_PROBLEMS):
+    expr, answer = generate_problem()
+    while True:
+        guess = input("Problem #" + str(i +1) + ":"+ " " + expr + "=")
+        if guess == str(answer):
+            break
+      
+
+
+print("Nice Work!")
+
+
+
+    
+
